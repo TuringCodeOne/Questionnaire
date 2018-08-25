@@ -1,0 +1,74 @@
+ .header {
+     text-align: center;
+ }
+
+ .hr1 {
+     border: 3px double #000;
+ }
+
+ .hr2 {
+     border: 0.5px solid #000;
+ }
+
+ .hr3 {
+     border: 0.5px dashed #ccc;
+ }
+
+ p {
+     font-size: 14px;
+     padding-bottom: 10px;
+     font-family: 'PingFang SC', tahoma, arial, 'helvetica neue', 'hiragino sans gb', 'microsoft yahei ui', 'microsoft yahei', simsun, sans-serif;
+ }
+
+ .btn {
+     text-align: center;
+ }
+
+ .text-center {
+     color: #000;
+     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+     font-size: 14px;
+ }
+
+ .checkbox {
+     padding: 10px;
+ }
+
+ .container {
+     margin-top: 15px;
+     margin-bottom: 15px;
+ }
+
+ @media(min-width:1000px) {
+     .container {
+         background: #fff;
+         padding: 30px 130px 130px 130px;
+         border: solid 1px #999595;
+         box-shadow: 0px 1px 4px #999595;
+         width: 1000px;
+         margin-bottom: 20px;
+     }
+     .text-center {
+         color: #337ab7;
+     }
+ }
+
+ @media(max-width:1000px) {
+     .text-center {
+         display: none;
+     }
+     .container {
+         background: rgba(255, 255, 255, 0.85);
+         padding: 20px 20px;
+         border: 3px double #000;
+     }
+     .hr1 {
+         display: none;
+     }
+ }
+
+
+ h1 {
+     font-family: Tangerine;
+     text-shadow: 4px 4px 4px #aaa;
+ }

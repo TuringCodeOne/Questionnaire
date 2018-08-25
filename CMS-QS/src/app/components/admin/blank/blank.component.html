@@ -1,0 +1,51 @@
+<div class="container">
+    <form class="form-horizontal">
+        <app-alert></app-alert>
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">问卷标题：</label>
+            <div class="col-sm-9">
+                <input type="email" class="form-control" id="inputEmail3" placeholder="例如：TECHF5VE招新问卷" [(ngModel)]="title" name="title">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">问卷描述：</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" rows="5" placeholder="问卷介绍，支持 html 格式" [(ngModel)]="description" name="description"></textarea>
+            </div>
+        </div>
+        <div class="form-group" *ngIf="description!=''">
+            <label for="inputPassword3" class="col-sm-2 control-label">问卷描述预览：</label>
+            <div class="panel col-sm-8 panel-info">
+                <div class="panel-body" [innerHTML]="description">
+                </div>
+            </div>
+        </div>
+        <div class="form-group" *ngIf="addEmail">
+            <div class="col-sm-offset-2 col-sm-9">
+                <button type="submit" class="btn btn-warning btn-block" (click)="adEmail()">添加邮件提示</button>
+            </div>
+        </div>
+        <div class="form-group" *ngIf="!addEmail">
+            <div class="col-sm-offset-2 col-sm-9">
+                <button type="submit" class="btn btn-danger btn-block" (click)="calEmail()">取消添加</button>
+            </div>
+        </div>
+        <div class="form-group" *ngIf="!addEmail">
+            <label for="inputEmail3" class="col-sm-2 control-label">邮件主题：</label>
+            <div class="col-sm-9">
+                <input type="email" class="form-control" id="inputEmail3" placeholder="例如：TECHF5VE纳新说明" [(ngModel)]="emailTitle" name="emailTile">
+            </div>
+        </div>
+        <div class="form-group" *ngIf="!addEmail">
+            <label for="inputPassword3" class="col-sm-2 control-label">邮件内容：</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" rows="5" placeholder="此功能用于问卷作答之后发送定制提醒邮件（需设置邮件题项）" [(ngModel)]="emailCont" name="email"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-9">
+                <button type="submit" class="btn btn-info btn-block" (click)="onCreate()">创建</button>
+            </div>
+        </div>
+    </form>
+</div>

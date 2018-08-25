@@ -1,0 +1,30 @@
+ul {
+    padding-left: 0px;
+    margin-bottom:40px;
+}
+
+li {
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+}
+
+div ul li a {
+    margin-right: 0px;
+}
+
+.dropdown-menu {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.divider {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+div ul li ul li a {
+    font-family: "微软雅黑";
+    padding-top: 11px;
+    padding-bottom: 11px;
+}

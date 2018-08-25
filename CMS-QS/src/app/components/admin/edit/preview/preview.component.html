@@ -1,0 +1,40 @@
+<div *ngIf="isnt" class="container">
+  <div class="header">
+    <hr class="hr1" />
+    <h1>{{info.que.title}}</h1>
+    <small>Online&nbsp;Survey&nbsp; & &nbsp;Questionnaire</small>
+    <hr class="hr2" />
+  </div>
+  <div>
+    <p [innerHTML]="info.que.description"></p>
+    <hr class="hr3" />
+  </div>
+  <div *ngFor="let sub of info.subs;" class="form-group">
+    <p>
+      {{sub.number}}.{{sub.title}}<span style="color:red;">*</span></p>
+    <textarea *ngIf="sub.type==='简答'" class="form-control" rows="5" [(ngModel)]="sub.shAns[0].answer" required></textarea>
+    <input *ngIf="sub.type==='简'" type="text" class="form-control" id="exampleInputName2" [(ngModel)]="sub.shAns[0].answer">
+    <div *ngIf="sub.type==='单选'">
+      <div class="radio" *ngFor="let opt of sub.options">
+        <label>
+          <input type="radio" name="optionsRadios" id="{{opt.number}}" #opti (click)="getCheck(opti.id,sub.id)"> {{opt.title}}
+        </label>
+      </div>
+    </div>
+    <div *ngIf="sub.type==='多选题'">
+      <div *ngFor="let opt of sub.options" class="checkbox">
+        <label>
+          <input type="checkbox" id="{{opt.number}}" #opts (click)="getChecks(opts.id,sub.id)">{{opt.title}}
+        </label>
+      </div>
+    </div>
+    <br/>
+    <hr class="hr3" />
+  </div>
+  <button type="submit" class="btn btn-info btn-lg btn-block"  data-toggle="modal" (click)="back()">返回</button>
+</div>
+<div *ngIf="isnt" class="text-center">
+  <strong>Copyright © 1998-2018 TECHF5VE</strong>
+  <div class="text-center">The system is provided by TECH5-QS
+    <a href="http://www.techf5ve.com/">TECHF5VE Questionnaire</a> Disclaimer Service agreement Privacy policy Report the questionnaire</div>
+</div>

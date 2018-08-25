@@ -1,0 +1,37 @@
+<div *ngIf="isnt" class="container">
+
+    <div class="page-header text-center">
+        <h1>{{bigTitle.que.title}}分析</h1>
+    </div>
+        <div *ngFor="let ans of info;let j=index" >
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><span class="glyphicon glyphicon-paperclip"></span>&nbsp; 第&nbsp;{{j+1}}&nbsp;张答卷
+                    </h3>
+                </div>
+                <div *ngFor="let an of ans;">
+                    <ul *ngIf="an.type=='单选' || an.type=='多选题'" style="padding: 0;margin:0" class="list-group">
+                        <li class="list-group-item text-info">{{an.number}}.{{an.title}}</li>
+                        <li class="list-group-item" *ngFor="let content of an.optContent">
+                            ❑&nbsp;{{content}}</li>
+                    </ul>
+                    <ul [hidden]="an.type=='单选' || an.type=='多选题'" style="padding: 0;margin:0" class="list-group">
+                        <li class="list-group-item text-info">{{an.number}}.{{an.title}}</li>
+                        <li class="list-group-item">
+                            {{an.content}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <div style="margin-bottom: 20px">
+        <button type="submit" class="btn btn-info btn-lg btn-block" data-toggle="modal" (click)="back()">返回</button>
+    </div>
+
+    <!--可视化分析-->
+    <!-- <div class="row">
+        <div echarts [options]="question2" class="demo-chart col-xs-12 col-md-12 col-lg-10 col-lg-offset-1 thumbnail"></div>
+    </div>
+    <div class="row">
+        <div echarts [options]="question6" class="demo-chart col-xs-12 col-md-12 col-lg-10 col-lg-offset-1 thumbnail"></div>
+    </div>-->
+</div>

@@ -1,0 +1,11 @@
+const MOCK_URL = 'http://apilaravel.test';
+// const MOCK_URL = 'https://www.yogurtcoder.xin';
+const API_URL = MOCK_URL + '/api';
+export const ANS_URL = '/answers';
+export const STATUS_URL = '/status';
+export const CREATE_SHORT_ANS = '/createshort';
+export const CREATE_OPT_AND = '/createmany';
+export const DEL_URL = '/delete';
+export const LOGIN_URL = API_URL + '/users';
+export const QUES_GET_URL = API_URL + '/ques';
+export const CREATE_QUES_URL = QUES_GET_URL + '/create';

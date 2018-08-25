@@ -1,0 +1,116 @@
+<div class="container" [@flyInOut]="quesAll.length">
+  <div class="questionnaires" *ngFor="let ques of quesAll;">
+    <div *ngIf="ques.delete_token===0 && ques.isntReply===1" class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{ques.title}}
+          <span *ngIf="ques.status" class="text-muted pull-right ">已发布</span>
+          <span *ngIf="!ques.status" class="text-muted pull-right text-danger">未发布</span>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <ul class="nav row">
+          <li role="presentation" class="col-xs-4 col-sm-2">
+            <a [routerLink]="['/admin/edit/design',ques.id]">
+              <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>&nbsp;设计问卷</a>
+          </li>
+          <li role="presentation" class="col-xs-4 col-sm-2">
+            <a [routerLink]="['/admin/edit/analyse',ques.id]">
+              <span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;问卷分析</a>
+          </li>
+          <li role="presentation" class="col-xs-4 col-sm-2">
+            <a [routerLink]="['/admin/edit/preview',ques.id]">
+              <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;问卷预览</a>
+          </li>
+          <li role="presentation" class="col-xs-4 col-sm-1 col-sm-offset-4" *ngIf="ques.status===0">
+            <a [routerLink]="['/admin/mine']" (click)="putout(ques.id)">
+              <span class="glyphicon glyphicon-export" aria-hidden="true"></span>&nbsp;发布</a>
+          </li>
+          <li role="presentation" class="col-xs-4 col-sm-1 col-sm-offset-4" *ngIf="ques.status===1">
+            <a [routerLink]="['/admin/mine']" (click)="reclaim(ques.id)" style="color:#f7b14b">
+              <span class="glyphicon glyphicon-record" aria-hidden="true"></span>&nbsp;撤回</a>
+          </li>
+          <li role="presentation" class="col-xs-4 col-sm-1">
+            <a [routerLink]="['/admin/mine']" (click)="delete(ques.id)" style="color:red;">
+              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;删除</a>
+          </li>
+        </ul>
+      </div>
+      <div class="panel-footer">
+        <ul class="nav row">
+          <li class="col-xs-12 col-sm-2">
+            <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+            编号：{{ques.id}} &emsp;
+          </li>
+          <li class="col-xs-12 col-sm-2">
+            <span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+            提交次数：{{ques.counts}}&emsp;
+          </li>
+          <li class="col-xs-12 col-sm-4">
+            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+            创建时间：{{ques.created_at}} &emsp;
+          </li>
+          <li class="col-xs-12 col-sm-4">
+            <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+            最新修改：{{ques.updated_at}} &emsp;
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div *ngIf="ques.delete_token===0 && ques.isntReply===0" class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{ques.title}}
+          <span *ngIf="ques.status" class="text-muted pull-right ">已发布</span>
+          <span *ngIf="!ques.status" class="text-muted pull-right text-danger">未发布</span>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <ul class="nav row">
+          <li role="presentation" class="col-xs-4 col-sm-2">
+            <a [routerLink]="['/admin/edit/design',ques.id]">
+              <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>&nbsp;设计问卷</a>
+          </li>
+          <li role="presentation" class="col-xs-4 col-sm-2">
+            <a [routerLink]="['/admin/edit/analyse',ques.id]">
+              <span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;问卷分析</a>
+          </li>
+          <li role="presentation" class="col-xs-4 col-sm-2">
+            <a [routerLink]="['/admin/edit/preview',ques.id]">
+              <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;问卷预览</a>
+          </li>
+          <li role="presentation" class="col-xs-4 col-sm-1 col-sm-offset-4" *ngIf="ques.status===0">
+            <a [routerLink]="['/admin/mine']" (click)="putout(ques.id)">
+              <span class="glyphicon glyphicon-export" aria-hidden="true"></span>&nbsp;发布</a>
+          </li>
+          <li role="presentation" class="col-xs-4 col-sm-1 col-sm-offset-4" *ngIf="ques.status===1">
+            <a [routerLink]="['/admin/mine']" (click)="reclaim(ques.id)" style="color:#f7b14b">
+              <span class="glyphicon glyphicon-record" aria-hidden="true"></span>&nbsp;撤回</a>
+          </li>
+          <li role="presentation" class="col-xs-4 col-sm-1">
+            <a [routerLink]="['/admin/mine']" (click)="delete(ques.id)" style="color:red;">
+              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;删除</a>
+          </li>
+        </ul>
+      </div>
+      <div class="panel-footer">
+        <ul class="nav row">
+          <li class="col-xs-12 col-sm-2">
+            <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+            编号：{{ques.id}} &emsp;
+          </li>
+          <li class="col-xs-12 col-sm-2">
+            <span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+            提交次数：{{ques.counts}}&emsp;
+          </li>
+          <li class="col-xs-12 col-sm-4">
+            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+            创建时间：{{ques.created_at}} &emsp;
+          </li>
+          <li class="col-xs-12 col-sm-4">
+            <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+            最新修改：{{ques.updated_at}} &emsp;
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

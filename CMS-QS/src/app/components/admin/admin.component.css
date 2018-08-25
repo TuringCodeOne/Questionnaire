@@ -1,0 +1,43 @@
+.navbar-inverse {
+    border-radius: 0;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+}
+.container-fluid{
+  padding-left:0px;
+  padding-right:0px;
+}
+
+.navbar-brand {
+    font-family: Monoton;
+    color: #000;
+}
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+  margin-left: 10px;
+}
+
+nav div div ul li a {
+  cursor: pointer;
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align: center;
+  color:#000;
+}
+
+.main-container {
+  padding-top: 50px;
+}
+.glyphicon{
+  color:#337ab7;
+}
+
+.exit-span{
+  color:red;
+}
+@media screen and (max-width: 768px) {
+  .main-container {
+    padding-top: 50px;
+  }
+  .navbar-toggle{
+    margin-right:30px;
+  }
+}
